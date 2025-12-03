@@ -1,0 +1,52 @@
+services:
+  cqgfeederservice:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: cqgfeederservice
+    ports:
+      - "5000:5000"
+    restart: always
+    depends_on:
+      - mysql
+    environment:
+      DB_HOST: mysql
+      DB_NAME: cqgfeederdb
+      DB_USER: cqgfeederuser
+      DB_PASSWORD: Password123!
+      AES_KEY: "dummy"        # 👈 add this line to avoid null reference
+      FIRESTORE_ENABLED: "false"  # 👈 optional flag you can check in code
+
+      ##### add path like linux not windows its provided in appsettings.json always here u see they provided C:\\CQGlogs\\security.txt & contact.txt, So this is wrong in appsetting it should be a linux path like /app/data/security.txt, /app/data/contact.txt so ill tell umesh to change this path in appsettings.json. Anything the app writes to /app/data/logs will appear in "feeder-data/logs" on our host, feeder-data is our volume so if container fails our logs will still remain in this volume
+
+      SECURITY_FILE: "/app/data/security.txt"
+      CONTRACT_FILE: "/app/data/contract.txt"
+      LOG_FILE_DIR: "/app/data/logs"
+
+    volumes:
+      - ./feeder-data:/app/data
+
+  mysql:
+    image: mysql:8.0
+    container_name: cqgfeeder-mysql
+    restart: always
+    environment:
+      ASPNETCORE_URLS: http://0.0.0.0:5000
+      MYSQL_ROOT_PASSWORD: RootPassword123!
+      MYSQL_DATABASE: cqgfeederdb
+      MYSQL_USER: cqgfeederuser
+      MYSQL_PASSWORD: Password123!
+      AES_KEY: "dummy"
+      FIRESTORE_ENABLED: "false"
+      FIRESTORE_JSON: ""        # 👈 disable Firestore
+      FIREBASE_PROJECT_ID: ""   # 👈 disable project access
+
+    ports:
+      - "3307:3306"
+    command: ["--default-authentication-plugin=mysql_native_password"]
+    volumes:
+      - cqgfeeder-mysql-data:/var/lib/mysql
+      - /tmp:/tmp
+volumes:
+  feeder-data:
+  cqgfeeder-mysql-data:
