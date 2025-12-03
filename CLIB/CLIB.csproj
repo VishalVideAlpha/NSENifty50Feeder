@@ -1,0 +1,80 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="Protos\account_authorization_2.proto" />
+    <None Remove="Protos\api_limit_2.proto" />
+    <None Remove="Protos\decimal.proto" />
+    <None Remove="Protos\economic_calendar_2.proto" />
+    <None Remove="Protos\historical_2.proto" />
+    <None Remove="Protos\instrument_definition_2.proto" />
+    <None Remove="Protos\market_data_2.proto" />
+    <None Remove="Protos\matchtrader.proto" />
+    <None Remove="Protos\mbp.proto" />
+    <None Remove="Protos\metadata_2.proto" />
+    <None Remove="Protos\metadata_admin_2.proto" />
+    <None Remove="Protos\order_2.proto" />
+    <None Remove="Protos\otc_1.proto" />
+    <None Remove="Protos\rate.proto" />
+    <None Remove="Protos\rules_1.proto" />
+    <None Remove="Protos\shared_1.proto" />
+    <None Remove="Protos\strategy_2.proto" />
+    <None Remove="Protos\strategy_definition_2.proto" />
+    <None Remove="Protos\symbol_browsing_2.proto" />
+    <None Remove="Protos\trade_routing_2.proto" />
+    <None Remove="Protos\trading_account_2.proto" />
+    <None Remove="Protos\trading_session_2.proto" />
+    <None Remove="Protos\user_attribute_2.proto" />
+    <None Remove="Protos\user_session_2.proto" />
+    <None Remove="Protos\webapi_2.proto" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="3.10.0" />
+    <PackageReference Include="Google.Protobuf" Version="3.31.1" />
+    <PackageReference Include="Grpc.Net.Client" Version="2.71.0" />
+    <PackageReference Include="Grpc.Tools" Version="2.72.0">
+      <PrivateAssets>all</PrivateAssets>
+      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+    </PackageReference>
+    <PackageReference Include="Microsoft.Data.SqlClient" Version="6.0.2" />
+    <PackageReference Include="Serilog.AspNetCore" Version="9.0.0" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="6.0.0" />
+    <PackageReference Include="Serilog.Sinks.File" Version="7.0.0" />
+    <PackageReference Include="System.Reactive" Version="6.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Protobuf Include="Protos\account_authorization_2.proto" />
+    <Protobuf Include="Protos\api_limit_2.proto" />
+    <Protobuf Include="Protos\decimal.proto" />
+    <Protobuf Include="Protos\economic_calendar_2.proto" />
+    <Protobuf Include="Protos\historical_2.proto" />
+    <Protobuf Include="Protos\instrument_definition_2.proto" />
+    <Protobuf Include="Protos\market_data_2.proto" />
+    <Protobuf Include="Protos\matchtrader.proto" />
+    <Protobuf Include="Protos\mbp.proto" />
+    <Protobuf Include="Protos\metadata_2.proto" />
+    <Protobuf Include="Protos\metadata_admin_2.proto" />
+    <Protobuf Include="Protos\order_2.proto" />
+    <Protobuf Include="Protos\otc_1.proto" />
+    <Protobuf Include="Protos\rate.proto" />
+    <Protobuf Include="Protos\rules_1.proto" />
+    <Protobuf Include="Protos\shared_1.proto" />
+    <Protobuf Include="Protos\strategy_2.proto" />
+    <Protobuf Include="Protos\strategy_definition_2.proto" />
+    <Protobuf Include="Protos\symbol_browsing_2.proto" />
+    <Protobuf Include="Protos\trade_routing_2.proto" />
+    <Protobuf Include="Protos\trading_account_2.proto" />
+    <Protobuf Include="Protos\trading_session_2.proto" />
+    <Protobuf Include="Protos\user_attribute_2.proto" />
+    <Protobuf Include="Protos\user_session_2.proto" />
+    <Protobuf Include="Protos\webapi_2.proto" />
+  </ItemGroup>
+
+</Project>

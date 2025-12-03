@@ -1,0 +1,27 @@
+// WebAPI limit messages
+
+syntax = "proto3";
+
+option csharp_namespace = "CQGAPI";
+
+package apidata;
+
+
+
+message Rate {
+  string Symbol = 1;
+  double Bid = 2;
+  double Ask = 3;
+  double Open = 4;
+  double High = 5;
+  double Low = 6;
+  double Close = 7;
+  double Ltp = 8;
+  string TimeStamp = 9;
+  string ContractSymbol = 10;
+    bool isDemo=11;
+  double sourceBid=12;
+  double sourceAsk=13;
+
+}
+

@@ -1,0 +1,57 @@
+﻿syntax = "proto3";
+
+option csharp_namespace = "NSEFeederService";
+
+package NSEData;
+
+message MBPData{
+     ExchangeType exchangeType=1;
+    double bid=2;
+    double ask=3;
+    double ltp=4;
+    double open=5;
+    double high=6;
+    double low=7;
+    double close=8;
+    double volume_traded=9;
+    double open_interest=10;
+    double ltq =11;
+    double atp =12;
+    int32 total_buy_qty=13;
+    int32 total_sell_qty=14;
+    string trade_time=15;
+    int32 token=16;
+    double spot =17;
+    repeated Depth top_buyer=18;
+    repeated Depth top_seller=19;
+    ContractData contract=20;
+    int32 timeStamp=21;
+    bool isDemo=22;
+}
+message Depth{
+    double price=1;
+    uint32 qty =2;
+    int32 buy_sell_size =3;
+}
+message ContractData{
+    string symbol=1;
+    string expiry=2;
+    OptionType type=3; 
+    double strike=4;
+    string instrument=5;
+    string description=6;
+    int32 lot_size=7;
+    int32 token=8;
+
+}
+enum OptionType{
+    FUT=0;
+    CE=1;
+    PE=2;
+}
+enum ExchangeType
+{
+    EQ=0;
+    FO=1;
+    Currency=2;
+}
